@@ -1,0 +1,33 @@
+/*
+id firstname lastname order_type price
+*/
+CREATE TABLE sales
+(
+id int primary key auto_increment not null,
+firstname varchar(40) not null,
+lastname varchar(40) not null,
+price int
+);
+select * from sales;
+ insert into sales
+values (null, 'Вася', 'Петров', '90'),
+(null, 'Петр', 'Власов', '180'),
+(null, 'Катя', 'Катина', '220'),
+(null, 'Саша', 'Сасин', '440'),
+(null, 'Иван', 'Ионов', '600'),
+(null, 'Петр', 'Петров', '80');
+ALTER TABLE sales 
+ADD order_type VARCHAR(45);
+CREATE TABLE type_zakaz
+(
+id int primary key auto_increment not null,
+name varchar(40) not null,
+price int not null
+);
+SELECT * FROM homework2.type_zakaz;
+ insert into type_zakaz
+values (null, 'min','<100'),
+(null, 'avg', '>100 and >300'),
+(null,'max', '>300');
+ALTER TABLE sales
+ADD FOREIGN KEY(price) REFERENCES order_type(price);
